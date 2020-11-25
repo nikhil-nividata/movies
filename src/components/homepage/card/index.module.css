@@ -1,0 +1,26 @@
+.cardStyle {
+    width: 250px;
+    transition: 320ms;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.cardStyle:hover {
+    z-index: 10;
+    width: 300px;
+    
+}
+
+.cardOverlay {
+    color: transparent;
+    padding-top: 280px; 
+    transition: 320ms;
+}
+
+.cardOverlay:hover {
+    color: white;
+    padding-top: 280px; 
+    background: rgb(2,0,36);
+    background: linear-gradient(0deg, rgba(2,0,36,0.927608543417367) 0%, rgba(6,6,60,0.7763480392156863) 35%, rgba(44,44,75,0) 49%, rgba(244,244,244,0) 100%);
+}
+
