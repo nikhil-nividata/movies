@@ -1,0 +1,11 @@
+.cardImage {
+    height: 70vh;
+    margin-left: 30%;
+    width: 70%;
+}
+
+.cardOverlay {
+    color: white;
+    background: rgb(27,24,91);
+    background: linear-gradient(90deg, rgba(27,24,91,1) 0%, rgba(16,16,135,1) 32%, rgba(44,44,75,0.5354516806722689) 45%, rgba(244,244,244,0) 100%);
+}

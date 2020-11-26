@@ -3,8 +3,10 @@ import React, { Component } from 'react'
 import LightsOn from './assets/on-bulb.svg'
 import LightsOff from './assets/off-bulb.svg'
 import NavBar from './components/common/navbar'
-import MovieCarousel from './components/homepage/carousel'
-import Spinner from 'react-bootstrap/Spinner'
+import HomePage from './components/homepage'
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
+import Movie from './components/movie'
+
 //// API KEY a54b9323e376a437bb50a12ac3a0b311
 
 const apiKey = "a54b9323e376a437bb50a12ac3a0b311"
@@ -46,42 +48,33 @@ class App extends Component {
     })
   }
 
-  async componentDidMount() {
-    let response = await fetch('https://api.themoviedb.org/3/movie/popular?api_key=a54b9323e376a437bb50a12ac3a0b311&language=en-US&page=1')
-    const popularMovies = await response.json()
-    response = await fetch('https://api.themoviedb.org/3/trending/movie/week?api_key=a54b9323e376a437bb50a12ac3a0b311')
-    const trendingMovies = await response.json()
-    this.setState({
-      isLoading: false,
-      popularMovies: popularMovies.results,
-      trendingMovies: trendingMovies.results
-    })
-    console.log(popularMovies.results)
-    console.log(trendingMovies.results)
-  }
 
   render() {
-    const { theme, isLoading, trendingMovies, popularMovies } = this.state
+    const { theme } = this.state
     return (
-      <div
-        style={{
-          height: '110vh',
-          backgroundColor: theme.appColor
-        }}
-      >
-        <NavBar theme={theme} toggleTheme={this.toggleTheme} />
-        {
-          (isLoading) ?
-            (<div className="h-50 d-flex justify-content-center align-items-end"> <Spinner animation="border" /> </div>)
-            : (
-              <>
-                <MovieCarousel theme={theme.theme} label="Trending Movies" movies={trendingMovies} />
+      <Router>
+        <div
+          style={{
+            height: '110vh',
+            backgroundColor: theme.appColor
+          }}
+        >
+          <NavBar theme={theme} toggleTheme={this.toggleTheme} />
+          <Switch>
+            <Route path="/"
+              exact
+              render={
+                (props) => <HomePage {...props} theme={theme} />
+              } />
+            <Route exact path="/movie/:id"
+              render={
+                (props) => <Movie {...props} theme={theme} />
+              }
+            />
+          </Switch>
+        </div>
+      </Router>
 
-                <MovieCarousel theme={theme.theme} label="Popular" movies={popularMovies} />
-              </>
-            )
-        }
-      </div>
     )
   }
 }
