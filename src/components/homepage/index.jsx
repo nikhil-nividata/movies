@@ -32,7 +32,11 @@ export default class index extends Component {
             <>
                 {
                     (isLoading) ?
-                        (<div className="h-50 d-flex justify-content-center align-items-end"> <Spinner animation="border" /> </div>)
+                        (<div
+                            style={{
+                                minHeight: '50vh'
+                            }}
+                            className="d-flex justify-content-center align-items-end"> <Spinner animation="border" /> </div>)
                         : (
                             <>
                                 <MovieCarousel theme={theme.theme} label="Trending Movies" movies={trendingMovies} />

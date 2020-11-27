@@ -55,7 +55,7 @@ class App extends Component {
       <Router>
         <div
           style={{
-            height: '110vh',
+            minHeight: '100vh',
             backgroundColor: theme.appColor
           }}
         >
