@@ -2,7 +2,7 @@ import React from 'react'
 import Card from 'react-bootstrap/Card'
 import styles from './index.module.css'
 
-function index({ theme, movie }) {
+function index({ theme, movie, videoDetails }) {
     return (
         <Card
             style={{
@@ -27,8 +27,10 @@ function index({ theme, movie }) {
                         maxWidth: '30%'
                     }}
                 >
+                    {/* {`https://www.youtube.com/embed/${videoDetails.key}`} <br /> */}
                     {movie.overview}
                 </p>
+                <iframe className="mt-3" title="Trailer" width="560" height="315" src={`https://www.youtube.com/embed/${videoDetails.key}`} frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             </Card.ImgOverlay>
         </Card>
     )
