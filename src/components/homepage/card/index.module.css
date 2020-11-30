@@ -1,14 +1,12 @@
 .cardStyle {
     width: 250px;
     transition: 320ms;
-    overflow: hidden;
-    text-overflow: ellipsis;
 }
 
 .cardStyle:hover {
-    z-index: 10;
-    width: 300px;
-    
+    transform: scale(1.2);
+    /* width: 300px; */
+    margin: 0;
 }
 
 .cardOverlay {

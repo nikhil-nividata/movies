@@ -38,11 +38,18 @@ export default function index({ theme, label, movies }) {
         }
         topLevelArray.push(arr)
     }
-    console.log(topLevelArray);
     return (
-        <div className="mt-5">
+        <div
+            style={{
+                overflow: 'visible'
+            }}
+            className="mt-5">
             <h3
                 className={"ml-3 " + (theme === "dark" ? "text-white" : "")}
+                style={{
+                    position: 'relative',
+                    zIndex: 0,
+                }}
             >
                 {label}
             </h3>
@@ -51,12 +58,27 @@ export default function index({ theme, label, movies }) {
                 wrap={false}
                 indicators={false}
                 autoPlay={false}
+                style={{
+                    position: 'relative',
+                    zIndex: 2,
+                    overflow: 'visible'
+                }}
             >
                 {
                     topLevelArray.map(
                         (arr, indx) => (
-                            <Carousel.Item key={`${indx}-tl`} >
-                                <div className="d-flex justify-content-between pr-3 pl-3">
+                            <Carousel.Item key={`${indx}-tl`}
+                                style={{
+                                    overflow: 'visible'
+                                }}
+                            >
+                                <div className="d-flex align-items-center justify-content-between pr-3 pl-3"
+                                    style={{
+                                        height: '300px', backgroundColor: 'black',
+                                        position: 'relative',
+                                        zIndex: 100
+                                    }}
+                                >
                                     {
                                         arr.map(
                                             (innerElem) => (

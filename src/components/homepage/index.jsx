@@ -13,7 +13,7 @@ export default class index extends Component {
         }
     }
 
-    async componentDidMount() {
+    fetchMoviesData = async () => {
         let response = await fetch('https://api.themoviedb.org/3/movie/popular?api_key=a54b9323e376a437bb50a12ac3a0b311&language=en-US&page=1')
         const popularMovies = await response.json()
         response = await fetch('https://api.themoviedb.org/3/trending/movie/week?api_key=a54b9323e376a437bb50a12ac3a0b311')
@@ -23,6 +23,10 @@ export default class index extends Component {
             popularMovies: popularMovies.results,
             trendingMovies: trendingMovies.results
         })
+    }
+
+    async componentDidMount() {
+        this.fetchMoviesData()
     }
 
     render() {

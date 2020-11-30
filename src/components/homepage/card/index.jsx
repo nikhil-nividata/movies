@@ -10,7 +10,7 @@ export default function index({ theme, movie }) {
                 style={{
                     backgroundColor: theme === 'light' ? 'rgb(229,229,229)' : 'rgb(23,30,36)'
                 }}
-                className={`${Styles.cardStyle} border-0`}
+                className={`border-0 ${Styles.cardStyle}`}
             >
                 <Card.Img
                     alt="Movie Poster"

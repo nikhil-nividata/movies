@@ -2,10 +2,9 @@ import './App.css';
 import React, { Component } from 'react'
 import LightsOn from './assets/on-bulb.svg'
 import LightsOff from './assets/off-bulb.svg'
+import { BrowserRouter as Router } from 'react-router-dom'
+import Routes from './router'
 import NavBar from './components/common/navbar'
-import HomePage from './components/homepage'
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
-import Movie from './components/movie'
 
 //// API KEY a54b9323e376a437bb50a12ac3a0b311
 
@@ -52,7 +51,9 @@ class App extends Component {
   render() {
     const { theme } = this.state
     return (
-      <Router>
+      <Router theme={theme}
+        toggleTheme={this.toggleTheme}
+      >
         <div
           style={{
             minHeight: '100vh',
@@ -60,21 +61,9 @@ class App extends Component {
           }}
         >
           <NavBar theme={theme} toggleTheme={this.toggleTheme} />
-          <Switch>
-            <Route path="/"
-              exact
-              render={
-                (props) => <HomePage {...props} theme={theme} />
-              } />
-            <Route exact path="/movie/:id"
-              render={
-                (props) => <Movie {...props} theme={theme} />
-              }
-            />
-          </Switch>
+          <Routes theme={theme} />
         </div>
       </Router>
-
     )
   }
 }

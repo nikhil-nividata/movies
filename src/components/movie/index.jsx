@@ -16,7 +16,7 @@ class Movie extends Component {
         }
     }
 
-    async componentDidMount() {
+    fetchMovieData = async () => {
         const { id } = this.state
         let response = await fetch(`https://api.themoviedb.org/3/movie/${id}?api_key=a54b9323e376a437bb50a12ac3a0b311&language=en-US`)
         const movie = await response.json()
@@ -30,6 +30,10 @@ class Movie extends Component {
             reviews,
             videoDetails,
         })
+    }
+
+    async componentDidMount() {
+        this.fetchMovieData()
     }
     // "https://image.tmdb.org/t/p/w1280" + movie.backdrop_path
     render() {
