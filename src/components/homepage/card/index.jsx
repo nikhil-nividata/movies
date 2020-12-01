@@ -20,7 +20,15 @@ export default function index({ theme, movie }) {
                     className={Styles.cardOverlay}
                 >
                     <Card.Title as="h6">{movie.title}</Card.Title>
-                    <Card.Text>
+                    <Card.Text
+                        style={{
+                            overflow: 'hidden',
+                            whiteSpace: 'nowrap',
+                            textOverflow: 'ellipsis',
+                            lineHeight: '1.1rem',
+                            height: '2.2rem'
+                        }}
+                    >
                         {movie.overview}
                     </Card.Text>
                 </Card.ImgOverlay>
