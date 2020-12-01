@@ -8,7 +8,7 @@ export default function index({ theme, movie }) {
         <Link to={`/movie/${movie.id}`}>
             <Card
                 style={{
-                    backgroundColor: theme === 'light' ? 'rgb(229,229,229)' : 'rgb(23,30,36)'
+                    backgroundColor: theme === 'light' ? 'rgb(229,229,229)' : 'rgb(23,30,36)',
                 }}
                 className={`border-0 ${Styles.cardStyle}`}
             >

@@ -41,14 +41,13 @@ export default function index({ theme, label, movies }) {
     return (
         <div
             style={{
-                overflow: 'visible'
+
             }}
             className="mt-5">
             <h3
                 className={"ml-3 " + (theme === "dark" ? "text-white" : "")}
                 style={{
-                    position: 'relative',
-                    zIndex: 0,
+
                 }}
             >
                 {label}
@@ -58,27 +57,12 @@ export default function index({ theme, label, movies }) {
                 wrap={false}
                 indicators={false}
                 autoPlay={false}
-                style={{
-                    position: 'relative',
-                    zIndex: 2,
-                    overflow: 'visible'
-                }}
             >
                 {
                     topLevelArray.map(
                         (arr, indx) => (
-                            <Carousel.Item key={`${indx}-tl`}
-                                style={{
-                                    overflow: 'visible'
-                                }}
-                            >
-                                <div className="d-flex align-items-center justify-content-between pr-3 pl-3"
-                                    style={{
-                                        height: '300px', backgroundColor: 'black',
-                                        position: 'relative',
-                                        zIndex: 100
-                                    }}
-                                >
+                            <Carousel.Item key={`${indx}-tl`}>
+                                <div className="d-flex align-items-center justify-content-between pr-3 pl-3">
                                     {
                                         arr.map(
                                             (innerElem) => (
@@ -89,22 +73,6 @@ export default function index({ theme, label, movies }) {
                             </Carousel.Item>
                         )
                     )
-
-                    // [1, 2, 3].map(
-                    //     elem => (
-                    //         <Carousel.Item key={elem}>
-                    // <div className="d-flex justify-content-between pr-3 pl-3">
-                    //     {
-                    //         arr.map(
-                    //             innerElem => (
-                    //                 <MovieCard key={innerElem} theme={theme} movie={movies[movieCount++]} />
-                    //             )
-                    //         )}
-                    // </div>
-                    //         </Carousel.Item>
-                    //     )
-                    // )
-
                 }
             </Carousel>
 

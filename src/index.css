@@ -16,3 +16,7 @@ code {
 #root {
   min-height: 100%;
 }
+
+.carousel-inner {
+  overflow: visible;
+}

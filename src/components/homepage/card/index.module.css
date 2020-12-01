@@ -4,8 +4,7 @@
 }
 
 .cardStyle:hover {
-    transform: scale(1.2);
-    /* width: 300px; */
+    transform: scale(1.1);
     margin: 0;
 }
 
