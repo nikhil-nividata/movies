@@ -6,32 +6,25 @@ function index({ theme, movie, videoDetails }) {
     return (
         <Card
             style={{
-                backgroundColor: theme === 'light' ? 'rgb(229,229,229)' : 'rgb(23,30,36)'
+                backgroundColor: theme.theme === 'light' ? 'white' : 'rgb(28,41,53)',
+                color: theme.theme === 'light' ? 'black' : 'white',
             }}
-            className={"mx-3 mt-4 border-0"}
+            bg={theme.theme}
+            className={"mx-sm-2 mt-4 border-0"}
         >
             <Card.Img
                 className={styles.cardImage}
                 src={"https://image.tmdb.org/t/p/w780" + movie.backdrop_path} />
-            <Card.ImgOverlay
+            <Card.Body
                 className={`${styles.cardOverlay}`}
             >
-                <h1
-                    className="mt-5"
-                >{movie.original_title}</h1>
-                <p
-                    className="mt-3"
-                    style={{
-                        fontSize: '20px',
-                        fontWeight: '300',
-                        maxWidth: '30%'
-                    }}
-                >
-                    {/* {`https://www.youtube.com/embed/${videoDetails.key}`} <br /> */}
+                <Card.Title
+                    className="mt-md-3"
+                >{movie.original_title}</Card.Title>
+                <Card.Text                >
                     {movie.overview}
-                </p>
-                <iframe className="mt-3" title="Trailer" width="560" height="315" src={`https://www.youtube.com/embed/${videoDetails.key}`} frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-            </Card.ImgOverlay>
+                </Card.Text>
+            </Card.Body>
         </Card>
     )
 }

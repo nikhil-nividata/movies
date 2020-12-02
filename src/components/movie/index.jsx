@@ -32,11 +32,24 @@ class Movie extends Component {
         })
     }
 
+    getIframeWidth() {
+        const width = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0)
+        console.log(width);
+
+        if (width > 768)
+            return width - 18
+        else
+            return width - 10
+    }
+
     async componentDidMount() {
         this.fetchMovieData()
     }
     // "https://image.tmdb.org/t/p/w1280" + movie.backdrop_path
     render() {
+        const ifWidth = this.getIframeWidth()
+        console.log(ifWidth);
+        const ifHeight = ifWidth * 9 / 16
         const { theme } = this.props
         const { id, isLoading, movie, reviews, videoDetails, rating } = this.state
         return (
@@ -49,18 +62,34 @@ class Movie extends Component {
                             }}
                             className="d-flex justify-content-center align-items-end"> <Spinner animation="border" /> </div>)
                         : (
-                            <>
+                            <div
+                                className="d-flex flex-column"
+                            >
+                                <div
+                                    className={styles.embedded}
+                                >
+                                    <iframe
+                                        className="mt-3"
+                                        height={ifHeight}
+                                        width={ifWidth}
+                                        title="Trailer"
+                                        src={`https://www.youtube.com/embed/${videoDetails.key}`} frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                </div>
                                 <MovieDetailCard
                                     theme={theme}
                                     movie={movie}
                                     videoDetails={videoDetails}
+                                    className={styles.movieDetails}
                                 />
-
-                                <Reviews
-                                    theme={theme}
-                                    reviews={reviews}
-                                />
-                            </>
+                                <div
+                                    className={styles.reviews}
+                                >
+                                    <Reviews
+                                        theme={theme}
+                                        reviews={reviews}
+                                    />
+                                </div>
+                            </div>
                         )
                 }
             </>

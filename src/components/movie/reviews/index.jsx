@@ -1,7 +1,7 @@
 import { React, useState } from 'react'
 import Styles from './index.module.css'
 import Card from 'react-bootstrap/Card'
-import { Button } from 'react-bootstrap'
+import { Button, FormControl, Row, Col } from 'react-bootstrap'
 
 
 function Index({ theme, reviews }) {
@@ -38,26 +38,28 @@ function Index({ theme, reviews }) {
     return (
         <div>
             <h1
-                className={"mt-3 ml-3" + (theme.theme === "light" ? "" : " text-white")}>
+                className={"mt-3 ml-3 ml-md-2" + (theme.theme === "light" ? "" : " text-white")}>
                 Reviews
             </h1>
 
-            <div
-                className="ml-3 d-flex mt-2"
+            <Row
+                className="ml-3 mt-2"
             >
-                <input
-                    disabled={diableRating}
-                    size="lg" type="text"
-                    onChange={handleChange}
-                    style={{ backgroundColor: theme.theme === 'light' ? '' : 'rgb(28,41,53)' }}
-                    className={(theme.theme === "light" ? "" : " text-white")}
-                />
+                <Col xs={6}>
+                    <FormControl
+                        disabled={diableRating}
+                        type="text"
+                        onChange={handleChange}
+                        variant='dark'
+                        className={(theme.theme === "light" ? "" : "text-white")}
+                    />
+                </Col>
                 <Button
                     onClick={rateMovie}
                     className="ml-3">
                     Rate
                 </Button>
-            </div>
+            </Row>
 
             {
                 (reviews.length === 0) ?
