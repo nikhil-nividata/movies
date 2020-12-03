@@ -5,6 +5,7 @@ import LightsOff from './assets/off-bulb.svg'
 import { BrowserRouter as Router } from 'react-router-dom'
 import Routes from './router'
 import NavBar from './components/common/navbar'
+import Footer from './components/common/footer'
 
 //// API KEY a54b9323e376a437bb50a12ac3a0b311
 
@@ -62,6 +63,7 @@ class App extends Component {
         >
           <NavBar theme={theme} toggleTheme={this.toggleTheme} />
           <Routes theme={theme} />
+          <Footer theme={theme} />
         </div>
       </Router>
     )
