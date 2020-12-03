@@ -21,6 +21,15 @@ function ReviewCard({ theme, review }) {
                             className={full ? '' : Styles.hideText}
                         >
                             {review.content}
+                            <div
+                                className={Styles.showLess}
+                                style={{
+                                    display: full ? '' : 'none'
+                                }}
+                                onClick={() => setFull(false)}
+                            >
+                                Show Less
+                            </div>
                         </div>
                         <Button
                             variant="text"

@@ -16,4 +16,12 @@
     text-overflow: ellipsis;
 }
 
+.showLess {
+    margin-top: 20px;
+    float: right;
+}
 
+.showLess:hover {
+    cursor: pointer;
+    color: blue;
+}
