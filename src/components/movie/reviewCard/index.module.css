@@ -1,0 +1,19 @@
+.textGrid {
+    display: flex;
+}
+
+.showMore {
+    padding-top: 0;
+}
+
+.showMore:hover {
+    color: blue;
+}
+
+.hideText {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+

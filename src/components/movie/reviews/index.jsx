@@ -2,7 +2,7 @@ import { React, useState } from 'react'
 import Styles from './index.module.css'
 import Card from 'react-bootstrap/Card'
 import { Button, FormControl, Row, Col } from 'react-bootstrap'
-
+import ReviewCard from '../reviewCard'
 
 function Index({ theme, reviews }) {
     const [rating, setRating] = useState(0);
@@ -70,19 +70,10 @@ function Index({ theme, reviews }) {
                     :
                     reviews.map(
                         review => (
-                            <Card className={"mx-md-2 my-3" + (theme.theme === "light" ? "" : " text-white")}
-                                bg={theme.theme === "light" ? "light" : "dark"}
-                            >
-                                <Card.Body>
-                                    <Card.Title>
-                                        {review.author}
-                                    </Card.Title>
-                                    <Card.Text>
-                                        Rating: {review.author_details.rating} <br />
-                                        {review.content}
-                                    </Card.Text>
-                                </Card.Body>
-                            </Card>
+                            <ReviewCard
+                                theme={theme}
+                                review={review}
+                            />
                         )
                     )
             }
