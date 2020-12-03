@@ -38,9 +38,9 @@ export default class index extends Component {
                     (isLoading) ?
                         (<div
                             style={{
-                                minHeight: '50vh'
+                                minHeight: '100vh'
                             }}
-                            className="d-flex justify-content-center align-items-end"> <Spinner animation="border" /> </div>)
+                            className="d-flex justify-content-center align-items-center"> <Spinner animation="border" /> </div>)
                         : (
                             <>
                                 <MovieCarousel theme={theme.theme} label="Trending Movies" movies={trendingMovies} />

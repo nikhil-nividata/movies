@@ -63,6 +63,9 @@ class App extends Component {
         >
           <NavBar theme={theme} toggleTheme={this.toggleTheme} />
           <Routes theme={theme} />
+          <div style={{ height: '50px' }}>
+
+          </div>
           <Footer theme={theme} />
         </div>
       </Router>

@@ -8,7 +8,7 @@ export default function footer({ theme, toggleTheme }) {
                 style={{
                     backgroundColor: theme.navbarColor
                 }}
-                className="d-md-flex justify-content-md-center mt-5 position-absolute w-100">
+                className="d-md-flex justify-content-md-center position-absolute w-100">
                 <Navbar.Brand className="text-white" >
                     &#169; 2020
                 </Navbar.Brand>
