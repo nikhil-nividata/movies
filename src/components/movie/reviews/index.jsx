@@ -43,9 +43,9 @@ function Index({ theme, reviews }) {
             </h1>
 
             <Row
-                className="ml-3 mt-2"
+                className="ml-md-2 mt-2 p-0"
             >
-                <Col xs={6}>
+                <Col xs={6} md={1}>
                     <FormControl
                         disabled={diableRating}
                         type="text"
@@ -70,7 +70,7 @@ function Index({ theme, reviews }) {
                     :
                     reviews.map(
                         review => (
-                            <Card className={"mx-3 my-3" + (theme.theme === "light" ? "" : " text-white")}
+                            <Card className={"mx-md-2 my-3" + (theme.theme === "light" ? "" : " text-white")}
                                 bg={theme.theme === "light" ? "light" : "dark"}
                             >
                                 <Card.Body>

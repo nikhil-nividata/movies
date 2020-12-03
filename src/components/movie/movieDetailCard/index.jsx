@@ -10,7 +10,7 @@ function index({ theme, movie, videoDetails }) {
                 color: theme.theme === 'light' ? 'black' : 'white',
             }}
             bg={theme.theme}
-            className={"mx-sm-2 mt-4 border-0"}
+            className={"mx-sm-2 mt-md-2 border-0"}
         >
             <Card.Img
                 className={styles.cardImage}

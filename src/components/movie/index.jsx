@@ -35,8 +35,13 @@ class Movie extends Component {
     getIframeWidth() {
         const width = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0)
         console.log(width);
-
-        if (width > 768)
+        if (width >= 1600)
+            return width * 0.42
+        if (width >= 1200)
+            return width * 0.36
+        if (width >= 992)
+            return width * 0.27
+        else if (width > 768)
             return width - 18
         else
             return width - 10
