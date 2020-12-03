@@ -35,25 +35,25 @@
 
 @media (min-width: 1200px) {
     .embedded {
-        top:46%;
+        top:38%;
     }
 }
 
 @media (min-width: 1400px) {
     .embedded {
-        top: 44%
+        top: 41%
     }
 }
 
 @media (min-width: 1600px) {
     .embedded {
-        top:32%;
+        top:36%;
         bottom: 0px;
     }
 }
 
 @media (min-width: 1800px) {
     .embedded {
-        top: 30%;
+        top: 31%;
     }
 }
