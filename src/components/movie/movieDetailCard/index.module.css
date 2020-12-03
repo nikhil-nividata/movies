@@ -30,13 +30,15 @@
         height: 100%;
         color: white;
         background: rgb(27,24,91);
-        background: linear-gradient(90deg, rgba(27,24,91,1) 0%, rgba(16,16,135,0.9248074229691877) 60%, rgba(85,80,186,0.10127801120448177) 100%);
+        background: linear-gradient(90deg, rgba(27,24,91,1) 0%, rgba(16,16,135,0.9780287114845938) 76%, rgba(85,80,186,0.10127801120448177) 100%);  
     }
 }
 
 @media (min-width: 1200px) {
     .cardImage {
         height: 72vh;
+        width: 80%;
+        margin-left: 20%;
     }
     .cardOverlay {
     }
