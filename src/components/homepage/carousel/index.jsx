@@ -1,8 +1,10 @@
 import React from 'react'
 import MovieCard from '../card'
-import { Carousel } from 'react-bootstrap'
+import { CarouselProvider, Slider, Slide, ButtonBack, ButtonNext } from 'pure-react-carousel'
+import 'pure-react-carousel/dist/react-carousel.es.css';
+import Styles from './index.module.css'
 
-export default function index({ theme, label, movies }) {
+export default function Index({ theme, label, movies }) {
     const width = document.documentElement.offsetWidth
     const count =
         (width > 1600) ? 6 :
@@ -41,7 +43,7 @@ export default function index({ theme, label, movies }) {
     return (
         <div
             style={{
-
+                overflow: 'hidden'
             }}
             className="mt-5">
             <h3
@@ -52,30 +54,51 @@ export default function index({ theme, label, movies }) {
             >
                 {label}
             </h3>
+            <div className={Styles.carouselContainer}>
+                <CarouselProvider
+                    naturalSlideWidth={1}
+                    naturalSlideHeight={1.5}
+                    totalSlides={movies.length}
+                    visibleSlides={6}
+                    step={6}
+                >
+                    <ButtonBack
+                        className={Styles.backButton}
+                    >
+                        {'<'}
+                    </ButtonBack>
+                    <ButtonNext
+                        className={Styles.nextButton}
+                    >
+                        {'>'}
+                    </ButtonNext>
 
-            <Carousel
-                wrap={false}
-                indicators={false}
-                autoPlay={false}
-            >
-                {
-                    topLevelArray.map(
-                        (arr, indx) => (
-                            <Carousel.Item key={`${indx}-tl`}>
-                                <div className="d-flex align-items-center justify-content-between pr-3 pl-3">
-                                    {
-                                        arr.map(
-                                            (innerElem) => (
-                                                <MovieCard key={innerElem} theme={theme} movie={movies[innerElem]} />
-                                            )
-                                        )}
-                                </div>
-                            </Carousel.Item>
-                        )
-                    )
-                }
-            </Carousel>
+                    <Slider style={{ overflow: 'visible' }}>
+                        {
+                            movies.map(
+                                (movie, index) => (
+                                    <Slide
+                                        style={{
+                                            // marginTop: '20px'
+                                        }}
+                                        key={index}
+                                        index={index}>
+                                        <MovieCard
+                                            style={{
+                                                marginTop: '20px',
+                                                marginRight: '10px'
+                                            }}
+                                            theme={theme}
+                                            movie={movie} />
+                                    </Slide>
+                                )
+                            )
+                        }
+                    </Slider>
+                </CarouselProvider>
+            </div>
 
+            {/* <MovieCard key={innerElem} theme={theme} movie={movies[innerElem]} /> */}
 
         </div>
     )
