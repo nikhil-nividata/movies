@@ -1,27 +1,27 @@
 .carouselContainer{
-    height: 100px;
     width: 95%;
     margin-left: 2.5%;
 }
 
 
-.backButton {
+.customButton {
     position: absolute;
-    left: 0px;
-    z-index: 10;
     height: 270px;
     color: white;
     background-color: rgba(0, 0, 0, 0.144);
     border:0;
+    z-index: 10;
 }
 
-.backButton:hover {
+.customButton:hover {
     background-color: rgba(0, 0, 0, 0.438);
-    transform: scale(1.3);
+    transform: perspective(200px);
+}
+
+.backButton {
+    left: 0px;
 }
 
 .nextButton{
-    position: absolute;
-    z-index: 10;
-    left: 30px;
+    right: -30px;
 }

@@ -7,39 +7,18 @@ import Styles from './index.module.css'
 export default function Index({ theme, label, movies }) {
     const width = document.documentElement.offsetWidth
     const count =
-        (width > 1600) ? 6 :
-            (width > 1200) ? 5 :
-                (width > 900) ? 4 :
+        (width > 1600) ? 8 :
+            (width > 1200) ? 6 :
+                (width > 900) ? 5 :
                     (width > 600) ? 3 :
-                        (width > 300) ? 2 : 1
-    let arr = new Array(count)
-    for (let i = 0; i < count; ++i)
-        arr[i] = i + 1
-    let movieCount = 0
+                        (width > 400) ? 2 : 1
+    const [natWidth, natHeight] =
+        (width > 1600) ? [1, 1.42] :
+            (width > 1200) ? [1, 1.3] :
+                (width > 900) ? [1, 1.5] :
+                    (width > 600) ? [1.3, 1.5] :
+                        (width > 400) ? [1, 1.4] : [1, .8]
 
-    const topLevelArray = []
-    const containers = (20 % (count - 2) === 0) ? Math.floor(20 / (count - 2)) : (Math.floor(20 / (count - 2)) + 1)
-    console.log(containers);
-    for (let i = 0; i < containers; ++i) {
-        let arr = []
-        if (i === 0) {
-            for (let j = 0; j < count; ++j)
-                arr.push(j)
-        } else if (i === containers - 1) {
-            let c = 19 - count
-            for (let j = 0; j < count; ++j)
-                arr.push(c--)
-        } else {
-            let indx = topLevelArray[i - 1][count - 1] - 1;
-            for (let j = 0; j < count; ++j)
-                arr.push(indx++)
-            if (indx > 20) {
-                topLevelArray.push(arr)
-                break
-            }
-        }
-        topLevelArray.push(arr)
-    }
     return (
         <div
             style={{
@@ -56,19 +35,19 @@ export default function Index({ theme, label, movies }) {
             </h3>
             <div className={Styles.carouselContainer}>
                 <CarouselProvider
-                    naturalSlideWidth={1}
-                    naturalSlideHeight={1.5}
+                    naturalSlideWidth={natWidth}
+                    naturalSlideHeight={natHeight}
                     totalSlides={movies.length}
-                    visibleSlides={6}
-                    step={6}
+                    visibleSlides={count}
+                    step={count}
                 >
                     <ButtonBack
-                        className={Styles.backButton}
+                        className={`${Styles.customButton} ${Styles.backButton}`}
                     >
                         {'<'}
                     </ButtonBack>
                     <ButtonNext
-                        className={Styles.nextButton}
+                        className={`${Styles.customButton} ${Styles.nextButton}`}
                     >
                         {'>'}
                     </ButtonNext>
@@ -97,9 +76,6 @@ export default function Index({ theme, label, movies }) {
                     </Slider>
                 </CarouselProvider>
             </div>
-
-            {/* <MovieCard key={innerElem} theme={theme} movie={movies[innerElem]} /> */}
-
         </div>
     )
 }
