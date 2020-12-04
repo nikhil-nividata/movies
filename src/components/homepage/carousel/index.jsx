@@ -8,13 +8,13 @@ export default function Index({ theme, label, movies }) {
     const width = document.documentElement.offsetWidth
     const count =
         (width > 1600) ? 8 :
-            (width > 1200) ? 6 :
+            (width > 1200) ? 7 :
                 (width > 900) ? 5 :
                     (width > 600) ? 3 :
                         (width > 400) ? 2 : 1
     const [natWidth, natHeight] =
         (width > 1600) ? [1, 1.42] :
-            (width > 1200) ? [1, 1.3] :
+            (width > 1200) ? [1, 1.35] :
                 (width > 900) ? [1, 1.5] :
                     (width > 600) ? [1.3, 1.5] :
                         (width > 400) ? [1, 1.4] : [1, .8]
@@ -24,7 +24,7 @@ export default function Index({ theme, label, movies }) {
             style={{
                 overflow: 'hidden'
             }}
-            className="mt-5">
+            className="mt-2 mt-md-3">
             <h3
                 className={"ml-3 " + (theme === "dark" ? "text-white" : "")}
                 style={{

@@ -66,7 +66,7 @@ class App extends Component {
           <div style={{ height: '50px' }}>
 
           </div>
-          <Footer theme={theme} />
+          {/* <Footer theme={theme} /> */}
         </div>
       </Router>
     )
