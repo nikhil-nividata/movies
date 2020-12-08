@@ -8,6 +8,11 @@
 
 .reviews {}
 
+.cardOverlay {
+    color: white;
+    background: rgb(9,58,189);
+    background: linear-gradient(90deg, rgba(9,58,189,1) 0%, rgba(35,18,191,0.9780287114845938) 45%, rgba(46,41,152,0.8379726890756303) 100%);
+}
 
 
 @media (min-width: 576px) {

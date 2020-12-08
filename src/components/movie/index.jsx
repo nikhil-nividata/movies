@@ -37,11 +37,11 @@ class Movie extends Component {
         const width = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0)
         console.log(width);
         if (width >= 1600)
-            return width * 0.42
+            return width * 0.28
         if (width >= 1200)
-            return width * 0.36
+            return width * 0.24
         if (width >= 992)
-            return width * 0.27
+            return width * 0.22
         else if (width > 768)
             return width - 18
         else
@@ -68,10 +68,7 @@ class Movie extends Component {
                             }}
                             className="d-flex justify-content-center align-items-end"> <Spinner animation="border" /> </div>)
                         : (
-                            <div
-                                className="d-flex flex-column"
-                            >
-
+                            <div>
                                 <div
                                     className={`mx-sm-2 mt-md-2 text-white`}
                                     style={{
@@ -80,7 +77,7 @@ class Movie extends Component {
                                     }}>
                                     <Container fluid>
                                         <Row>
-                                            <Col md={4}>
+                                            <Col md={4} className={styles.cardOverlay}>
                                                 <h2>
                                                     {movie.original_title}
                                                 </h2>
@@ -97,7 +94,8 @@ class Movie extends Component {
                                             <Col
                                                 style={{
                                                     backgroundImage: `url(${"https://image.tmdb.org/t/p/w780" + movie.backdrop_path})`,
-                                                    backgroundSize: 'cover'
+                                                    backgroundSize: 'cover',
+                                                    height: "60vh"
                                                 }}
                                                 md={8}>
                                             </Col>
