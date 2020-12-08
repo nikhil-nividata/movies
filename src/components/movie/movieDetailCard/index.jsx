@@ -23,8 +23,7 @@ function index({ theme, movie, videoDetails, ifHeight, ifWidth }) {
                         </p>
                         <div
                             style={{
-                                display: 'flex',
-                                flexDirection: 'column',
+                                marginTop: 'auto'
                             }}
                         >
                             <div>
