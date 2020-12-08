@@ -54,7 +54,6 @@ class Movie extends Component {
     // "https://image.tmdb.org/t/p/w1280" + movie.backdrop_path
     render() {
         const ifWidth = this.getIframeWidth()
-        console.log(ifWidth);
         const ifHeight = ifWidth * 9 / 16
         const { theme } = this.props
         const { id, isLoading, movie, reviews, videoDetails, rating } = this.state
@@ -69,39 +68,13 @@ class Movie extends Component {
                             className="d-flex justify-content-center align-items-end"> <Spinner animation="border" /> </div>)
                         : (
                             <div>
-                                <div
-                                    className={`mx-sm-2 mt-md-2 text-white`}
-                                    style={{
-                                        // backgroundImage: `url(${"https://image.tmdb.org/t/p/w780" + movie.backdrop_path})`,
-                                        height: 'auto'
-                                    }}>
-                                    <Container fluid>
-                                        <Row>
-                                            <Col md={4} className={styles.cardOverlay}>
-                                                <h2>
-                                                    {movie.original_title}
-                                                </h2>
-                                                <p>
-                                                    {movie.overview}
-                                                </p>
-                                                <iframe
-                                                    className="mt-3"
-                                                    height={ifHeight}
-                                                    width={ifWidth}
-                                                    title="Trailer"
-                                                    src={`https://www.youtube.com/embed/${videoDetails.key}`} frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                                            </Col>
-                                            <Col
-                                                style={{
-                                                    backgroundImage: `url(${"https://image.tmdb.org/t/p/w780" + movie.backdrop_path})`,
-                                                    backgroundSize: 'cover',
-                                                    height: "60vh"
-                                                }}
-                                                md={8}>
-                                            </Col>
-                                        </Row>
-                                    </Container>
-                                </div>
+
+                                <MovieDetailCard
+                                    ifHeight={ifHeight}
+                                    ifWidth={ifWidth}
+                                    movie={movie}
+                                    videoDetails={videoDetails}
+                                />
 
                                 <div
                                     className={styles.reviews}

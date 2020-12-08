@@ -7,11 +7,12 @@ import Styles from './index.module.css'
 export default function Index({ theme, label, movies }) {
     const width = document.documentElement.offsetWidth
     const count =
-        (width > 1600) ? 8 :
-            (width > 1200) ? 7 :
-                (width > 900) ? 5 :
-                    (width > 600) ? 3 :
-                        (width > 400) ? 2 : 1
+        (width > 1700) ? 8 :
+            (width > 1650) ? 7 :
+                (width > 1200) ? 7 :
+                    (width > 900) ? 5 :
+                        (width > 600) ? 3 :
+                            (width > 400) ? 2 : 1
     const [natWidth, natHeight] =
         (width > 1600) ? [1, 1.42] :
             (width > 1200) ? [1, 1.35] :

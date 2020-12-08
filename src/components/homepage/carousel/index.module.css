@@ -30,3 +30,12 @@
         height: 30.5vh;
     }
 }
+
+@media (min-width:1599px ) and (max-width: 1650px){
+    .carouselContainer {
+        height: 36vh;
+    }
+    .customButton{
+        height: 34vh;
+    }
+}

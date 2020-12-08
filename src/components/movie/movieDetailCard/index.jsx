@@ -1,31 +1,41 @@
 import React from 'react'
-import Card from 'react-bootstrap/Card'
+import { Card, Container, Row, Col } from 'react-bootstrap'
 import styles from './index.module.css'
 
-function index({ theme, movie, videoDetails }) {
+function index({ theme, movie, videoDetails, ifHeight, ifWidth }) {
     return (
-        <Card
+        <div
+            className={`mx-sm-2 mt-md-2 text-white`}
             style={{
-                backgroundColor: theme.theme === 'light' ? 'white' : 'rgb(28,41,53)',
-                color: theme.theme === 'light' ? 'black' : 'white',
-            }}
-            bg={theme.theme}
-            className={"mx-sm-2 mt-md-2 border-0"}
-        >
-            <Card.Img
-                className={styles.cardImage}
-                src={"https://image.tmdb.org/t/p/w780" + movie.backdrop_path} />
-            <Card.Body
-                className={`${styles.cardOverlay}`}
-            >
-                <Card.Title
-                    className="mt-md-3"
-                >{movie.original_title}</Card.Title>
-                <Card.Text                >
-                    {movie.overview}
-                </Card.Text>
-            </Card.Body>
-        </Card>
+                height: 'auto'
+            }}>
+            <Container fluid>
+                <Row>
+                    <Col md={4} className={`${styles.cardOverlay} pt-2`}>
+                        <h2>
+                            {movie.original_title}
+                        </h2>
+                        <p>
+                            {movie.overview}
+                        </p>
+                        <iframe
+                            className="mt-3"
+                            height={ifHeight}
+                            width={ifWidth}
+                            title="Trailer"
+                            src={`https://www.youtube.com/embed/${videoDetails.key}`} frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </Col>
+                    <Col
+                        style={{
+                            backgroundImage: `url(${"https://image.tmdb.org/t/p/w780" + movie.backdrop_path})`,
+                            backgroundSize: 'cover',
+                            minHeight: "70vh"
+                        }}
+                        md={8}>
+                    </Col>
+                </Row>
+            </Container>
+        </div>
     )
 }
 
