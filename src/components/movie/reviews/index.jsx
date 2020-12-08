@@ -1,7 +1,7 @@
 import { React, useState } from 'react'
 import Styles from './index.module.css'
 import Card from 'react-bootstrap/Card'
-import { Button, FormControl, Row, Col, InputGroup } from 'react-bootstrap'
+import { Button, FormControl, Row, Col, InputGroup, Accordion } from 'react-bootstrap'
 import ReviewCard from '../reviewCard'
 
 function Index({ theme, reviews }) {
@@ -57,23 +57,25 @@ function Index({ theme, reviews }) {
                 </InputGroup.Append>
             </InputGroup>
 
-
-            {
-                (reviews.length === 0) ?
-                    <h5
-                        className={"mt-3 ml-3" + (theme.theme === "light" ? "" : " text-white")}
-                    >No reviews Yet
+            <Accordion >
+                {
+                    (reviews.length === 0) ?
+                        <h5
+                            className={"mt-3 ml-3" + (theme.theme === "light" ? "" : " text-white")}
+                        >No reviews Yet
                     </h5>
-                    :
-                    reviews.map(
-                        review => (
-                            <ReviewCard
-                                theme={theme}
-                                review={review}
-                            />
+                        :
+                        reviews.map(
+                            (review, index) => (
+                                <ReviewCard
+                                    theme={theme}
+                                    review={review}
+                                    eventKey={index}
+                                />
+                            )
                         )
-                    )
-            }
+                }
+            </Accordion>
         </div>
     )
 }

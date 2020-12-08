@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Container, Row, Col } from 'react-bootstrap'
 import Spinner from 'react-bootstrap/Spinner'
 import styles from './index.module.css'
 import MovieDetailCard from './movieDetailCard'
@@ -70,22 +71,40 @@ class Movie extends Component {
                             <div
                                 className="d-flex flex-column"
                             >
+
                                 <div
-                                    className={styles.embedded}
-                                >
-                                    <iframe
-                                        className="mt-3"
-                                        height={ifHeight}
-                                        width={ifWidth}
-                                        title="Trailer"
-                                        src={`https://www.youtube.com/embed/${videoDetails.key}`} frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                    className={`mx-sm-2 mt-md-2 text-white`}
+                                    style={{
+                                        // backgroundImage: `url(${"https://image.tmdb.org/t/p/w780" + movie.backdrop_path})`,
+                                        height: 'auto'
+                                    }}>
+                                    <Container fluid>
+                                        <Row>
+                                            <Col md={4}>
+                                                <h2>
+                                                    {movie.original_title}
+                                                </h2>
+                                                <p>
+                                                    {movie.overview}
+                                                </p>
+                                                <iframe
+                                                    className="mt-3"
+                                                    height={ifHeight}
+                                                    width={ifWidth}
+                                                    title="Trailer"
+                                                    src={`https://www.youtube.com/embed/${videoDetails.key}`} frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                            </Col>
+                                            <Col
+                                                style={{
+                                                    backgroundImage: `url(${"https://image.tmdb.org/t/p/w780" + movie.backdrop_path})`,
+                                                    backgroundSize: 'cover'
+                                                }}
+                                                md={8}>
+                                            </Col>
+                                        </Row>
+                                    </Container>
                                 </div>
-                                <MovieDetailCard
-                                    theme={theme}
-                                    movie={movie}
-                                    videoDetails={videoDetails}
-                                    className={styles.movieDetails}
-                                />
+
                                 <div
                                     className={styles.reviews}
                                 >
