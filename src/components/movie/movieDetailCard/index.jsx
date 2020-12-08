@@ -11,19 +11,32 @@ function index({ theme, movie, videoDetails, ifHeight, ifWidth }) {
             }}>
             <Container fluid>
                 <Row>
-                    <Col md={4} className={`${styles.cardOverlay} pt-2`}>
+                    <Col
+                        md={4}
+                        className={`${styles.cardOverlay} py-3 w-100 d-flex flex-column`}
+                    >
                         <h2>
                             {movie.original_title}
                         </h2>
                         <p>
                             {movie.overview}
                         </p>
-                        <iframe
-                            className="mt-3"
-                            height={ifHeight}
-                            width={ifWidth}
-                            title="Trailer"
-                            src={`https://www.youtube.com/embed/${videoDetails.key}`} frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        <div
+                            style={{
+                                display: 'flex',
+                                flexDirection: 'column',
+                            }}
+                        >
+                            <div>
+                                <iframe
+                                    className="mt-3"
+                                    height={ifHeight}
+                                    width={ifWidth}
+                                    title="Trailer"
+                                    src={`https://www.youtube.com/embed/${videoDetails.key}`} frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+                                </iframe>
+                            </div>
+                        </div>
                     </Col>
                     <Col
                         style={{
