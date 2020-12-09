@@ -2,6 +2,8 @@ import './App.css';
 import React, { Component } from 'react'
 import LightsOn from './assets/on-bulb.svg'
 import LightsOff from './assets/off-bulb.svg'
+import HomeLight from './assets/home-light.svg'
+import HomeDark from './assets/home-dark.svg'
 import { BrowserRouter as Router } from 'react-router-dom'
 import Routes from './router'
 import NavBar from './components/common/navbar'
@@ -27,14 +29,16 @@ class App extends Component {
     theme: 'light',
     appColor: 'rgb(229,229,229)',
     navbarColor: 'rgb(96,48,230)',
-    bulbIcon: LightsOn
+    bulbIcon: LightsOn,
+    homeIcon: HomeLight
   }
 
   darkTheme = {
     theme: 'dark',
     appColor: 'rgb(23,30,36)',
     navbarColor: 'rgb(28,41,53)',
-    bulbIcon: LightsOff
+    bulbIcon: LightsOff,
+    homeIcon: HomeDark
   }
 
   toggleTheme = () => {

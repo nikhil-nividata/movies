@@ -37,9 +37,9 @@ class Movie extends Component {
         const width = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0)
         console.log(width);
         if (width >= 1600)
-            return width * 0.28
+            return width * 0.28 * 1.125
         if (width >= 1200)
-            return width * 0.24
+            return width * 0.24 * 1.3
         if (width >= 992)
             return width * 0.22
         else if (width > 768)

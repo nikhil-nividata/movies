@@ -3,6 +3,7 @@ import Card from 'react-bootstrap/Card'
 import Styles from './index.module.css'
 import { Link } from 'react-router-dom'
 
+
 export default function index({ theme, movie }) {
     return (
         <Link to={`/movie/${movie.id}`}>
@@ -21,13 +22,7 @@ export default function index({ theme, movie }) {
                 >
                     <Card.Title as="h6">{movie.title}</Card.Title>
                     <Card.Text
-                        style={{
-                            overflow: 'hidden',
-                            whiteSpace: 'nowrap',
-                            textOverflow: 'ellipsis',
-                            lineHeight: '1.1rem',
-                            height: '2.2rem'
-                        }}
+                        className={Styles.cardText}
                     >
                         {movie.overview}
                     </Card.Text>

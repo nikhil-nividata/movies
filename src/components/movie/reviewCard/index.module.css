@@ -1,27 +1,10 @@
-.textGrid {
-    display: flex;
-}
-
-.showMore {
-    padding-top: 0;
-}
-
-.showMore:hover {
-    color: blue;
-}
-
-.hideText {
-    overflow: hidden;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-}
-
-.showLess {
-    margin-top: 20px;
-    float: right;
-}
-
-.showLess:hover {
+.accordion:hover{
     cursor: pointer;
-    color: blue;
+}
+
+
+.reviewContent {
+    word-wrap: break-word;
+    white-space: pre-line;
+    text-align: justify;
 }

@@ -26,15 +26,15 @@ function index({ theme, movie, videoDetails, ifHeight, ifWidth }) {
                                 marginTop: 'auto'
                             }}
                         >
-                            <div>
-                                <iframe
-                                    className="mt-3"
-                                    height={ifHeight}
-                                    width={ifWidth}
-                                    title="Trailer"
-                                    src={`https://www.youtube.com/embed/${videoDetails.key}`} frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
-                                </iframe>
-                            </div>
+
+                            <iframe
+                                className="mt-3"
+                                height={ifHeight}
+                                width='100%'
+                                title="Trailer"
+                                src={`https://www.youtube.com/embed/${videoDetails.key}`} frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+                            </iframe>
+
                         </div>
                     </Col>
                     <Col
