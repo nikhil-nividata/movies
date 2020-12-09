@@ -27,7 +27,7 @@ export default function Index({ theme, label, movies }) {
             }}
             className="mt-2 mt-md-3">
             <h3
-                className={"ml-3 " + (theme === "dark" ? "text-white" : "")}
+                className={"ml-5 " + (theme === "dark" ? "text-white" : "")}
                 style={{
 
                 }}
