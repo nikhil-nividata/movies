@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 
 export default function navbar({ theme, toggleTheme }) {
     return (
-        <div>
+        <div className="sticky-top">
             <Navbar
                 style={{
                     backgroundColor: theme.navbarColor
