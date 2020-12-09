@@ -20,8 +20,6 @@ class App extends Component {
     this.state = {
       theme: this.lightTheme,
       isLoading: true,
-      trendingMovies: [],
-      popularMovies: []
     }
   }
 
